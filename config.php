@@ -25,10 +25,24 @@
     //
     // configuration parameters
     //
-    // edit these to reflect your particular situation
-    //
-    $locale = 'en_US.UTF-8';
-    $language = 'nl';
+     $language = isset($_GET['lang']) ? $_GET['lang'] : '';
+
+      switch($language){
+         case 'fr':
+             $locale = 'fr_FR';
+         break;
+         case 'en':
+             $locale = 'en_UK';
+         break;
+
+         default:
+            // edit these to reflect your particular situation
+            //
+
+            $language = 'fr';
+            $locale = 'fr_FR';
+         break;
+      }
 
     // Set local timezone
     date_default_timezone_set("Europe/Amsterdam");
