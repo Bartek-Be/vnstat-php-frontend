@@ -14,8 +14,8 @@ $L['Last 30 days'] = 'Derniers 30 jours';
 $L['Last 12 months'] = 'Les 12 derniers mois';
 
 // traffic table columns
-$L['In'] = 'Entrant';
-$L['Out'] = 'Sortant';
+$L['In'] = 'Téléchargé';
+$L['Out'] = 'Téléversé';
 $L['Total'] = 'Total';
 
 // summary rows
@@ -26,8 +26,8 @@ $L['All time'] = 'Tout temps';
 
 // graph text
 $L['Traffic data for'] = 'Traffic de donnée pour :';
-$L['bytes in'] = 'bytes entrants';
-$L['bytes out'] = 'bytes sortants';
+$L['bytes in'] = 'Octects entrant';
+$L['bytes out'] = 'Octects sortant';
 
 // date formats
 $L['datefmt_days'] = '%d %B';
