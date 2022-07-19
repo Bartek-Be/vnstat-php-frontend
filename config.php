@@ -39,8 +39,8 @@
             // edit these to reflect your particular situation
             //
 
-            $language = 'fr';
-            $locale = 'fr_FR';
+            $language = 'en';
+            $locale = 'en_UK';
          break;
       }
 
