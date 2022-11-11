@@ -135,7 +135,7 @@
         print "<table width=\"100%\" cellspacing=\"0\">\n";
         print "<caption>$caption</caption>\n";
         print "<tr>";
-        print "<th class=\"label\" style=\"width:120px;\">&nbsp;</th>";
+        print "<th class=\"label\" style=\"width:150px;\">&nbsp;</th>";
         print "<th class=\"label\">".T('In')."</th>";
         print "<th class=\"label\">".T('Out')."</th>";
         print "<th class=\"label\">".T('Total')."</th>";
