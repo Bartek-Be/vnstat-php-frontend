@@ -208,8 +208,12 @@
         write_data_table(T('Last 12 months'), $month);
     }
     ?>
+	<table width="100%" cellspacing="0"style="border-spacing: 4px 0;" id="footer">
+		<caption id="footer"><a href="http://www.sqweek.com/">vnStat PHP frontend</a> 2.0.1</caption>
+		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2006-2011</td><td class="footer" width="60%" align="left">Bjorge Dijkstra (bjd _at_ jooz.net)</td></tr>
+		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2022     </td><td class="footer" width="60%" align="left">Johnny A. Solbu (johnny@solbu.net) </td></tr>
+	</table>
     </div>
-    <div id="footer"><a href="http://www.sqweek.com/">vnStat PHP frontend</a> 2.0.0 - &copy;2006-2011 Bjorge Dijkstra (bjd _at_ jooz.net)</div>
   </div>
 </div>
 

@@ -26,8 +26,9 @@ explained in config.php.
 
 3. LICENSE
 
-vnstat PHP frontend 2.0.0
+vnstat PHP frontend 2.0.1
 Copyright (c)2006-2011  Bjorge Dijkstra (bjd@jooz.net)
+	  (c)2022	Johnny A. Solbu (johnny@solbu.net)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
