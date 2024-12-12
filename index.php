@@ -209,7 +209,7 @@
     }
     ?>
 	<table width="100%" cellspacing="0"style="border-spacing: 4px 0;" id="footer">
-		<caption id="footer"><a href="https://github.com/solbu/vnstat-php-frontend/">vnStat PHP frontend</a> 2.0.1</caption>
+		<caption id="footer"><a href="https://github.com/solbu/vnstat-php-frontend/">vnStat PHP frontend</a> 2.0.2</caption>
 		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2006-2011</td><td class="footer" width="60%" align="left">Bjorge Dijkstra (bjd _at_ jooz.net)</td></tr>
 		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2022-2024</td><td class="footer" width="60%" align="left">Johnny A. Solbu (johnny@solbu.net) </td></tr>
 	</table>
