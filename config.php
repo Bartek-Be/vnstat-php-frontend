@@ -93,4 +93,7 @@
     // SVG Depth scaling factor
     define('SVG_DEPTH_SCALING', 1);
 
+    // SVG Depth scaling factor
+    define('SVG_DEPTH_SCALING', 1);
+
 ?>
