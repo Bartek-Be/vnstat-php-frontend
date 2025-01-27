@@ -36,32 +36,33 @@
 
         $p = "&amp;graph=$graph&amp;style=$style";
 
-        print "<ul class=\"iface\">\n";
+        print "    <ul class=\"iface\">\n";
         foreach ($iface_list as $if)
         {
             if ($iface == $if) {
-                print "<li class=\"iface active\">";
+                print "      <li class=\"iface active\">";
             } else {
-                print "<li class=\"iface\">";
+                print "      <li class=\"iface\">";
             }
             print "<a href=\"$script?if=$if$p\">";
             if (isset($iface_title[$if]))
             {
-                print $iface_title[$if];
+                print "$iface_title[$if] ($if)";
             }
             else
             {
                 print $if;
             }
-            print "</a>";
-            print "<ul class=\"page\">\n";
+            print "</a>\n";
+            print "        <ul class=\"page\">\n";
             foreach ($page_list as $pg)
             {
-                print "<li class=\"page\"><a href=\"$script?if=$if$p&amp;page=$pg\">".$page_title[$pg]."</a></li>\n";
+                print "          <li class=\"page\"><a href=\"$script?if=$if$p&amp;page=$pg\">".$page_title[$pg]."</a></li>\n";
             }
-            print "</ul></li>\n";
+            print "        </ul>\n      </li>\n";
         }
-        print "</ul>\n";
+        /*print "    <li class=\"iface\"><a href=\"../vnstat-web\">vnstat-web</a></li>\n";*/
+        print "    </ul>\n";
     }
 
 
@@ -125,20 +126,20 @@
         }
 
         write_data_table(T('Summary'), $sum);
-        print "<br/>\n";
+        print "      <br/>\n";
         write_data_table(T('Top 10 days'), $top);
     }
 
 
     function write_data_table($caption, $tab)
     {
-        print "<table width=\"100%\" cellspacing=\"0\">\n";
-        print "<caption>$caption</caption>\n";
-        print "<tr>";
+        print "      <table width=\"100%\" cellspacing=\"0\">\n";
+        print "        <caption>$caption</caption>\n";
+        print "        <tr>";
         print "<th class=\"label\" style=\"width:150px;\">&nbsp;</th>";
-        print "<th class=\"label\">".T('In')."</th>";
-        print "<th class=\"label\">".T('Out')."</th>";
-        print "<th class=\"label\">".T('Total')."</th>";
+        print "<th class=\"label\">".T('In')." (Rx)</th>";
+        print "<th class=\"label\">".T('Out')." (Tx)</th>";
+        print "<th class=\"label\">".T('Total')." (Rx+Tx)</th>";
         print "</tr>\n";
 
         for ($i=0; $i<count($tab); $i++)
@@ -150,7 +151,7 @@
                 $tx = kbytes_to_string($tab[$i]['tx']);
                 $total = kbytes_to_string($tab[$i]['rx']+$tab[$i]['tx']);
                 $id = ($i & 1) ? 'odd' : 'even';
-                print "<tr>";
+                print "        <tr>";
                 print "<td class=\"label_$id\">$t</td>";
                 print "<td class=\"numeric_$id\">$rx</td>";
                 print "<td class=\"numeric_$id\">$tx</td>";
@@ -158,7 +159,25 @@
                 print "</tr>\n";
              }
         }
-        print "</table>\n";
+        print "      </table>\n";
+    }
+
+
+    function write_themes_list()
+    {
+        global $style;
+        $themes_list = scandir("./themes");
+        foreach ($themes_list as $theme)
+        {
+            if (file_exists("./themes/$theme/theme.php") && file_exists("./themes/$theme/style.css"))
+            {
+                if ($theme == $style) {
+                    print "            <option selected=\"$style\">$style</option>\n";
+                } else {
+                    print "            <option value=\"$theme\">$theme</option>\n";
+                }
+            }
+        }
     }
 
     get_vnstat_data();
@@ -167,26 +186,57 @@
     // html start
     //
     header('Content-type: text/html; charset=utf-8');
-    print '<?xml version="1.0"?>';
+    /*print '<?xml version="1.0" encoding="utf-8" ?>';*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>vnStat - PHP frontend</title>
-  <link rel="stylesheet" type="text/css" href="themes/<?php echo $style ?>/style.css"/>
+<?php
+    if (isset($_POST['style'])) {
+      $style = $_POST['style'];
+      setcookie("style", $style, time() + 86400); // Ciasteczko ważne przez 24 godziny
+      setcookie("SameSite", "Lax", time() + 86400);
+    } else {
+      $style = $_COOKIE['style'] ?? $style; // Domyślny styl
+    }
+    print "  <link rel=\"stylesheet\" type=\"text/css\" href=\"themes/$style/style.css\">\n";
+?>
+  <script type="text/javascript">
+    function doChange(dropdown)
+    {   
+        document.getElementById('subbtn').click();
+    }
+  </script>
 </head>
-<body>
 
+<body>
 <div id="wrap">
-  <div id="sidebar"><?php write_side_bar(); ?></div>
-   <div id="content">
-    <div id="header"><?php print T('Traffic data for').(isset($iface_title[$iface]) ? $iface_title[$iface] : '')." ($iface)";?></div>
+  <div id="sidebar">
+<?php write_side_bar(); ?>
+    <div class="bottom-box">
+      <div><hr class="bottom-box"/>
+      <div style="padding: 0 0 0 10px;"><a href="../vnstat-web">vnstat-classic</a></div>
+      <hr class="bottom-box"/></div>
+      <div style="padding: 0 0 0 10px;">
+        <form action="" method="post" class="bottom-box">
+          <label>Style:&nbsp;</label>
+          <select name="style" onchange="doChange(this)">
+<?php write_themes_list(); ?>
+          </select>
+          <input type="submit" id="subbtn" style="display:none" value="">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div id="header"><?php print T("Traffic data for").": '".(isset($iface_title[$iface]) ? $iface_title[$iface] : '')."' ($iface)"; ?></div>
     <div id="main">
-    <?php
+<?php
     $graph_params = "if=$iface&amp;page=$page&amp;style=$style";
     if ($page != 's')
         if ($graph_format == 'svg') {
-	     print "<object type=\"image/svg+xml\" width=\"692\" height=\"297\" data=\"graph_svg.php?$graph_params\"></object>\n";
+	     print "      <object type=\"image/svg+xml\" width=\"692\" height=\"297\" data=\"graph_svg.php?$graph_params\"></object>\n";
         } else {
 	     print "<img src=\"graph.php?$graph_params\" alt=\"graph\"/>\n";
         }
@@ -207,12 +257,12 @@
     {
         write_data_table(T('Last 12 months'), $month);
     }
-    ?>
-	<table width="100%" cellspacing="0"style="border-spacing: 4px 0;" id="footer">
-		<caption id="footer"><a href="https://github.com/solbu/vnstat-php-frontend/">vnStat PHP frontend</a> 2.0.2</caption>
-		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2006-2011</td><td class="footer" width="60%" align="left">Bjorge Dijkstra (bjd _at_ jooz.net)</td></tr>
-		<tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2022-2024</td><td class="footer" width="60%" align="left">Johnny A. Solbu (johnny@solbu.net) </td></tr>
-	</table>
+?>
+      <table width="100%" cellspacing="0" style="border-spacing: 4px 0;" id="footer">
+        <caption id="footer"><a href="https://github.com/solbu/vnstat-php-frontend/">vnStat PHP frontend</a> 2.0.2</caption>
+        <tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2006-2011</td><td class="footer" width="60%" align="left">Bjorge Dijkstra (bjd _at_ jooz.net)</td></tr>
+        <tr><td class="footer" width="38%" align="right">&copy;<td class="footer" align="left">2022-2024</td><td class="footer" width="60%" align="left">Johnny A. Solbu (johnny@solbu.net) </td></tr>
+      </table>
     </div>
   </div>
 </div>

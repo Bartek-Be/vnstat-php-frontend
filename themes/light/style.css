@@ -2,6 +2,8 @@ body
 {
     margin: 0;
     padding: 0;
+    font-family: 'Trebuchet MS', Verdana, sans-serif;
+    font-size:12px;
 }
 
 a[href]:link,
@@ -16,9 +18,8 @@ a[href]:focus {
     text-decoration: none;
 }
 
-#wrap
-{
-   xwidth: 868px;
+#wrap {
+width: 960px; padding:10px; margin:0 auto; border:1px solid #99b;
 }
 
 #sidebar
@@ -57,13 +58,12 @@ a[href]:focus {
     list-style-type: none;
     font-size: 12px;
     font-weight: bold;
-    xborder-top: 1px solid #99b;
+    border-top: 1px solid #99b;
     border-bottom: 1px solid #99b;
 }
 
 #sidebar a
 {
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 1em;
     font-weight: bold;
 }
@@ -81,7 +81,6 @@ a[href]:focus {
     padding: 4px;
     border: none;
     list-style-type: none;
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 0.75em;
     font-weight: normal;
     text-align: right;
@@ -105,7 +104,6 @@ a[href]:focus {
     border-collapse: collapse;
     color: #000;    
     background-color: #eef;
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 1em;
     font-weight: bold;    
     text-align: center;
@@ -118,7 +116,6 @@ a[href]:focus {
     border-collapse: collapse;
     color: #000;    
     background-color: #eef;
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 0.65em;
     font-weight: bold;    
     text-align: center;
@@ -135,8 +132,7 @@ a[href]:focus {
 
 #main td
 {
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
-    font-size: 0.8em;
+    font-size: 12px;
 }
 
 #main td.numeric_odd
@@ -167,7 +163,6 @@ a[href]:focus {
 
 #main th.label
 {
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 1em;
     font-weight: bold;
     color: #000;    
@@ -176,8 +171,20 @@ a[href]:focus {
 
 #main caption
 {
-    font-family: 'Trebuchet MS', Verdana, sans-serif;
     font-size: 1.25em;
     font-weight: bold;
     padding: 4px;
+}
+
+#sidebar hr.bottom-box {
+    border: 1px solid #99b; 
+    margin: 20px 0;
+}
+
+#sidebar div.bottom-box {
+    padding: 15px 10px;
+}
+
+#sidebar form.bottom-box {
+   color: #00f;
 }

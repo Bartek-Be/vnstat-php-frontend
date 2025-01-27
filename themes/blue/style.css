@@ -4,7 +4,10 @@ body {background:#82CAFF; font-family:Verdana; font-size:12px;}
 #sidebar {width: 160px; float: left; padding: 3px 4px; color: #aaa; background-color: #6FC1FF; border:1px solid #3E80FE; -moz-border-radius:8px;}
 #sidebar ul.iface {}
 #sidebar li.iface {list-style-type:none; color:#0000A0; text-transform:uppercase; padding-bottom:10px; text-align:center;}
-#sidebar a{color:#eee;}
+#sidebar li.iface ul {display: none;}
+#sidebar li.iface.active ul {display: block;}
+#sidebar li.iface:hover ul {display: block;}
+#sidebar a{color:#eee; text-decoration: none;}
 #sidebar ul.page {}
 #sidebar li.page {list-style-type:none; text-transform:none;}
 #content {margin-left: 180px; width: 780px;}
@@ -19,4 +22,6 @@ body {background:#82CAFF; font-family:Verdana; font-size:12px;}
 #main td.label_even {color: #fff; background:#90D7FF;}
 #main th.label {color: #fff; padding:2px 0; border-bottom:1px solid #fff;}
 #main caption {padding: 3px 0 4px 0; color:#2B65EC; text-transform:uppercase;}
-
+#sidebar hr.bottom-box {border: 1px solid #4E90FE; margin: 20px 0;}
+#sidebar div.bottom-box {padding: 15px 10px;}
+#sidebar form.bottom-box {color: #eee;}
