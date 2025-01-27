@@ -216,8 +216,8 @@
           <select name="style">
 <?php
   write_themes_list();
-  print "\n          </select>";
-  print "          <input type=\"submit\" value=\"".T('Set')."\">";
+  print "          </select>\n";
+  print "          <input type=\"submit\" value=\"".T('Set')."\">\n";
 ?>
         </form>
       </div>
