@@ -215,9 +215,7 @@
   <div id="sidebar">
 <?php write_side_bar(); ?>
     <div class="bottom-box">
-      <div><hr class="bottom-box"/>
-      <div style="padding: 0 0 0 10px;"><a href="../vnstat-web">vnstat-classic</a></div>
-      <hr class="bottom-box"/></div>
+      <div><hr class="bottom-box"/></div>
       <div style="padding: 0 0 0 10px;">
         <form action="" method="post" class="bottom-box">
           <label>Style:&nbsp;</label>
