@@ -43,7 +43,7 @@
                 print "      <li class=\"iface active\">";
             } else {
                 print "      <li class=\"iface\">";
-            }
+            }          
             print "<a href=\"$script?if=$if$p\">";
             if (isset($iface_title[$if]))
             {
@@ -61,7 +61,6 @@
             }
             print "        </ul>\n      </li>\n";
         }
-        /*print "    <li class=\"iface\"><a href=\"../vnstat-web\">vnstat-web</a></li>\n";*/
         print "    </ul>\n";
     }
 
@@ -215,7 +214,11 @@
   <div id="sidebar">
 <?php write_side_bar(); ?>
     <div class="bottom-box">
-      <div><hr class="bottom-box"/></div>
+      <hr class="bottom-box"/>
+      <div style="padding: 0 0 0 10px;">
+        <a href="../vnstat-web">vnstat-classic</a>
+      </div>
+      <hr class="bottom-box"/>
       <div style="padding: 0 0 0 10px;">
         <form action="" method="post" class="bottom-box">
           <label>Style:&nbsp;</label>

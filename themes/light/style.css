@@ -178,11 +178,11 @@ width: 960px; padding:10px; margin:0 auto; border:1px solid #99b;
 
 #sidebar hr.bottom-box {
     border: 1px solid #99b; 
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 #sidebar div.bottom-box {
-    padding: 15px 10px;
+    margin: 10px;
 }
 
 #sidebar form.bottom-box {

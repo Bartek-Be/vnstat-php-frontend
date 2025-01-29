@@ -22,6 +22,6 @@ body {background:#82CAFF; font-family:Verdana; font-size:12px;}
 #main td.label_even {color: #fff; background:#90D7FF;}
 #main th.label {color: #fff; padding:2px 0; border-bottom:1px solid #fff;}
 #main caption {padding: 3px 0 4px 0; color:#2B65EC; text-transform:uppercase;}
-#sidebar hr.bottom-box {border: 1px solid #4E90FE; margin: 20px 0;}
-#sidebar div.bottom-box {padding: 15px 10px;}
+#sidebar hr.bottom-box {border: 1px solid #4E90FE; margin: 10px 0;}
+#sidebar div.bottom-box {margin: 10px;}
 #sidebar form.bottom-box {color: #eee;}
