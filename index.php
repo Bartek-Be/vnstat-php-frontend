@@ -43,7 +43,7 @@
                 print "      <li class=\"iface active\">";
             } else {
                 print "      <li class=\"iface\">";
-            }          
+            }
             print "<a href=\"$script?if=$if$p\">";
             if (isset($iface_title[$if]))
             {
@@ -203,7 +203,7 @@
 ?>
   <script type="text/javascript">
     function doChange(dropdown)
-    {   
+    {
         document.getElementById('subbtn').click();
     }
   </script>
@@ -214,10 +214,6 @@
   <div id="sidebar">
 <?php write_side_bar(); ?>
     <div class="bottom-box">
-      <hr class="bottom-box"/>
-      <div style="padding: 0 0 0 10px;">
-        <a href="../vnstat-web">vnstat-classic</a>
-      </div>
       <hr class="bottom-box"/>
       <div style="padding: 0 0 0 10px;">
         <form action="" method="post" class="bottom-box">
