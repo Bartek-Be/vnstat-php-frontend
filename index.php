@@ -194,10 +194,10 @@
 <?php
     if (isset($_POST['style'])) {
       $style = $_POST['style'];
-      setcookie("style", $style, time() + 86400); // Ciasteczko ważne przez 24 godziny
+      setcookie("style", $style, time() + 86400);
       setcookie("SameSite", "Lax", time() + 86400);
     } else {
-      $style = $_COOKIE['style'] ?? $style; // Domyślny styl
+      $style = $_COOKIE['style'] ?? $style;
     }
     print "  <link rel=\"stylesheet\" type=\"text/css\" href=\"themes/$style/style.css\">\n";
 ?>
